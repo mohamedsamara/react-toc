@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 export interface HeadingElement {
   id: string;
   text: string;
-  level: number;
 }
 
 export const useHeadings = (containerId: string) => {
@@ -18,7 +17,6 @@ export const useHeadings = (containerId: string) => {
       .map((element) => ({
         id: element.id,
         text: element.textContent ?? '',
-        level: Number(element.tagName.substring(1)),
       }));
     setHeadings(elements);
   }, [containerId]);
